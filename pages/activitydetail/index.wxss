@@ -1,0 +1,124 @@
+/* pages/activitydetail/index.wxss */
+page{
+  background-color: black;
+}
+
+.infoContainer{
+  background-color: white;
+  border-radius: 24rpx 24rpx 0 0;
+  box-shadow: 0 -4rpx 88rpx#000000 ;
+  width: 100%;
+}
+
+.titleContainer{
+  padding: 0 32rpx 32rpx 32rpx;
+
+}
+
+.titleText{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.timeContainer{
+  padding: 10rpx 32rpx 0rpx 32rpx;
+}
+
+.navigatebtn{
+  background-color: var(--color-lightblue);
+  color: var(--color-brand-blue);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  width: 88rpx;
+}
+
+.rateContainer{
+  padding: 12rpx 32rpx 24rpx 32rpx;
+}
+
+.evaluationContainer{
+  padding: 0 0 12rpx 16rpx;
+  white-space: nowrap; 
+  overflow-x: scroll; /* 横向滚动 */
+}
+
+.evaluationItem{
+  display: inline-block; /* 横向排列 */
+  margin-left: 16rpx;
+  border-radius: 18rpx;
+  opacity: 1;
+  background: #f3f3f3;
+  padding: 24rpx 32rpx;
+  width: 83%;
+}
+
+.evaluationText{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 设置显示的行数 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.introductionContainer{
+  padding: 12rpx 32rpx 32rpx 32rpx;
+}
+
+.detailContainer{
+  height: calc(100vh - 500rpx);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.actionContainer{
+  background-color: white;
+  padding: 32rpx;
+}
+
+.iconContainer{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.buybtn{
+  color: white;
+  background-color: var(--color-brand-blue);
+  height: 88rpx;
+  line-height: 88rpx;
+  width: calc(100vw - 296rpx);
+}
+
+.pullUpHandle{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 152rpx 22rpx;
+  position: relative;
+  bottom: 34rpx;
+}
+
+.guestContainer{
+  padding: 20rpx 0 0rpx 32rpx;
+}
+
+.guestImg{
+  width: 566rpx;
+  height: 320rpx;
+}
+
+.card-theme {
+  --td-swiper-radius: 0;
+  --td-swiper-item-padding: 0 12rpx;
+  --td-swiper-nav-dot-color: #e7e7e7;
+  --td-swiper-nav-dot-active-color: #0052d9;
+
+  padding-bottom: 18px;
+}
+
+.card-theme .card-theme-nav {
+  bottom: -18px;
+}
+
+.venueContainer{
+  padding: 48rpx 0 0 32rpx;
+}

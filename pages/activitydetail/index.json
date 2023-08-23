@@ -1,0 +1,18 @@
+{
+  
+  "usingComponents": {
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
+    "t-divider": "tdesign-miniprogram/divider/divider",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-rate": "tdesign-miniprogram/rate/rate",
+    "t-toast": "tdesign-miniprogram/toast/toast",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav"
+  },
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "详情",
+  "navigationBarBackgroundColor": "#000"
+
+}
