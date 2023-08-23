@@ -1,0 +1,141 @@
+<view style="width: 100%;">
+  <t-toast id="t-toast" />
+
+  <!-- 图片展示背景 -->
+  <view>
+    <!-- 顶部的活动图片显示 -->
+    <image src="{{pageData.posterImage}}" style="width: 100%;height: 340rpx;" mode="aspectFill"></image>
+    <!-- 活动嘉宾标题区域 -->
+    <view class="guestContainer">
+      <text class="font-h2" style="color: white;">活动嘉宾</text>
+    </view>
+    <!-- 活动嘉宾图片展示区域 -->
+    <view style="margin-top: 24rpx;" class="card-theme">
+      <t-swiper
+        loop="{{false}}"
+        navigation="{{ { type: 'dots' } }}"
+        list="{{pageData.guestImage}}"
+        image-props="{{ { shape: 'round' } }}"
+        previousMargin="32rpx"
+        nextMargin="{{swiperNextMargin}}rpx"
+        t-class-nav="card-theme-nav"
+        height="320rpx"
+        image-props="{{imageProps}}"
+        autoplay="{{false}}"
+      />
+    </view>
+
+    <!-- 活动会场标题区域 -->
+    <view class="venueContainer">
+      <text class="font-h2" style="color: white;">活动会场</text>
+    </view>
+    <!-- 活动会场图片展示区域 -->
+    <view style="margin-top: 24rpx;margin-bottom: 220rpx;" class="card-theme">
+      <t-swiper
+        loop="{{false}}"
+        navigation="{{ { type: 'dots' } }}"
+        list="{{pageData.venueImage}}"
+        image-props="{{ { shape: 'round' } }}"
+        previousMargin="32rpx"
+        nextMargin="{{swiperNextMargin}}rpx"
+        t-class-nav="card-theme-nav"
+        height="320rpx"
+        image-props="{{imageProps}}"
+        autoplay="{{false}}"
+      />
+    </view>
+  </view>
+
+  <!-- 底部的收藏购买分享功能栏 -->
+  <view>
+    <!-- 主要显示区域 -->
+    <view class="infoContainer" style="position: fixed;bottom: 0;">
+      <!-- 下拉按钮 -->
+      <t-icon name="chevron-down" size="24" color="#fff" style="position: relative;bottom: 48rpx;" bind:click="showOrHideDetail" wx:if="{{ifShowDetail}}"/>
+      <!-- 上拉按钮 -->
+      <view class="pullUpHandle" style="background-image: url(/images/activitydetail/Union@2x.png); ">
+        <t-icon name="chevron-up" size="24" color="var(--color-black-60)" style="position: relative;top: 18rpx;" bind:click="showOrHideDetail" wx:if="{{!ifShowDetail}}"/>
+      </view>
+
+      <!-- 详细信息栏，初始显示 -->
+      <view class="detailContainer" animation="{{animationShowHide}}" >
+        <!-- 标题区域 -->
+        <view class="titleContainer">
+          <text class="titleText">{{pageData.activityTitleText}}</text>
+          <!-- 头像展示区域 -->
+          <view style="margin-top: 24rpx;display: flex;">
+            <view>
+              <t-avatar-group style="font-size: 11.2px;" max="5" collapseAvatar="{{avatarnum}}+" cascading='right-up' size="64rpx">
+                <t-avatar wx:for="{{pageData.interestedPeopleAvatar}}" wx:for-item="pic" wx:key="index" image="{{pic}}" size="64rpx"/>
+              </t-avatar-group>
+            </view>
+            <text class="note" style="line-height: 64rpx; text-align: center;margin-left: 16rpx;">{{pageData.interestedPeopleNum}}人感兴趣</text>
+          </view>
+        </view>
+        <t-divider />
+        <!-- 时间，地点，导航区域 -->
+        <view class="timeContainer">
+          <view style="display: flex;">
+            <view style="width: 35rpx;">
+              <t-icon name="time" size="35rpx" color="#0052D9" />
+            </view>
+            <text class="font-normal" style="margin-left: 10.5rpx;line-height: 35rpx;text-align: center;">时间：{{pageData.beginTime}}</text>
+          </view>
+          <view style="display: flex;">
+            <view style="width: 40rpx;display: flex;justify-content: center;align-items: center;">
+              <t-icon name="location" size="40rpx" color="#0052D9" />
+            </view>
+            <text class="font-normal" style="margin-left: 5.5rpx;width: 81%;text-align: left;vertical-align: middle;line-height: 70rpx;">地点：{{pageData.location}}</text>
+            <view style="line-height: 70rpx;">
+              <t-button theme="light" class="navigatebtn" bindtap="navigateToLocation" size="extra-small">导航</t-button>
+             </view>
+          </view>
+
+        </view>
+        <t-divider />
+        <!-- 评分区域 -->
+        <view class="rateContainer" style="display: flex;">
+          <view class="font-h2" style="width: 42%;">活动评价（{{pageData.evaluation.length}}）</view>
+          <view style="display: flex;">
+            <!-- <t-rate value="{{pageData.evaluationScore}}" showText="{{true}}" texts="{{scoreTexts}}" size="24px" /> -->
+            <t-rate value="{{pageData.evaluationScore}}" allowHalf size="48rpx"  />
+            <text class="font-normal-bold" style="color: var(--color-orange);line-height: 48rpx;margin-left: 16rpx;">{{pageData.evaluationScore}}分</text>
+          </view>
+        </view>
+        <!-- 评论区域 -->
+        <scroll-view class="evaluationContainer" scroll-x>
+          <view wx:for="{{pageData.evaluation}}" class="evaluationItem" wx:key="index">
+            <view style="display: flex;">
+              <view style="display: flex;justify-content: center;align-items: center;"><t-avatar class="evaluation-avatar" image="{{item.userAvatar}}" /></view>
+              <view style="margin-left: 24rpx;">
+                <view class="font-normal">{{item.username}}</view>
+                <view class="note evaluationText" style="margin-top: 8rpx; line-height: 40rpx;"><text style="white-space: normal;">{{item.text}}</text></view>            </view>
+              </view>
+          </view>
+        </scroll-view>
+        <t-divider />
+        <!-- 活动介绍区域 -->
+        <view class="introductionContainer">
+          <view class="font-h2">活动介绍</view>
+          <view style="margin-top: 24rpx;" class="font-normal">{{pageData.introduction}}</view>
+        </view>
+      </view>
+      <!-- 常显示的购买收藏分享栏 -->
+      <view class="actionContainer" style="display: flex;">
+        <view class="iconContainer">
+          <t-icon name="heart-filled" size="48rpx" bind:click="onLikeTap" color="var(--color-red)" wx:if="{{!pageData.ifLiked}}"/>
+          <t-icon name="heart" size="48rpx" bind:click="onLikeTap" wx:if="{{pageData.ifLiked}}" />
+          <view class="font-normal" style="text-align: center;">收藏</view>
+        </view>
+        <view class="iconContainer">
+          <t-icon name="share" size="48rpx" bind:click="onShareTap" />
+          <view class="font-normal" style="text-align: center;">分享</view>
+        </view>
+        <view style="margin-left: 32rpx;">
+          <button class="font-normal-bold buybtn" bindtap="buyTicket">立即购买￥{{pageData.pricemin}}-￥{{pageData.pricemax}}</button>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
