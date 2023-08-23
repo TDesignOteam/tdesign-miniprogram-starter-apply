@@ -1,4 +1,157 @@
-<!--logs.wxml-->
-<view class="container">
-  My Page
-</view>
+<!-- 个人信息栏 -->
+<view class="head-box">
+  <!-- 头像 -->
+  <t-avatar class="head-avatar" size="large" image="{{image}}" />  
+  <!-- 昵称 -->
+  <text class='head-name'>{{username}} </text>
+   <!--标签  -->
+  <t-tag t-class="head-tag1" size="large" variant="light"> {{userage}}岁</t-tag>
+  <t-tag t-class="head-tag2" size="large" variant="light"> {{userwork}}</t-tag>
+  <!-- 编辑图标 -->
+  <t-icon t-class="head-icon" name="edit" size="48rpx" data-name="edit" bind:click="onIconTap" />
+</view> 
+
+
+
+<!-- tag选项卡 -->
+<t-tabs
+  defaultValue="{{0}}"
+  bind:change="onTabsChange"
+  bind:click="onTabsClick"
+  t-class="custom-tabs"
+  t-class-content="custom-panel"
+>
+<!-- 待参加 -->
+  <t-tab-panel label="待参加" value="0" style="{{tabPanelstyle}}"
+  badge-props="{{ { dot: true, offset: ['-10rpx', '4rpx'] } }}">
+  <!-- 待参加   内容 -->
+  <view>
+    <view class="item">
+      <!-- 左侧图片 -->
+      <view class="item_image">
+        <image src="/image/item1_image.png" mode=""/>
+      </view>
+      <!-- 右侧文字 -->
+      <view class="item_info">
+        <text class="item_text_title">2021 SICC服务设计创新大会</text>
+        <text class="item_text_time">2021年3月16日</text>
+        <text class="item_text_state1">待参加</text>
+      </view>
+    </view>
+  </view>
+  </t-tab-panel>
+<!-- 已完成 -->
+  <t-tab-panel label="已完成" value="1" style="{{tabPanelstyle}}">
+  <!-- 已完成   内容 -->
+  <view>
+    <view class="item">
+        <!-- 左侧图片 -->
+        <view class="item_image">
+          <image src="/image/item2_image.png" mode=""/>
+        </view>
+        <!-- 右侧文字 -->
+        <view class="item_info">
+          <text class="item_text_title">少年与星空 插画巡展</text>
+          <text class="item_text_time">2021年6月5日</text>
+          <text class="item_text_state2">
+          已完成 <text class="item_text_evaluate">去评价</text>
+          </text>          
+        </view>
+    </view>
+
+    <view class="item">
+      <!-- 左侧图片 -->
+      <view class="item_image">
+        <image src="/image/item3_image.png" mode=""/>
+      </view>
+      <!-- 右侧文字 -->
+      <view class="item_info">
+        <text class="item_text_title">2019 SICC服务设计创新大会</text>
+        <text class="item_text_time">2019年3月16日</text>
+        <text class="item_text_state2">
+        已完成 <text class="item_text_evaluate">去评价</text>
+        </text>          
+      </view>
+    </view>
+
+    <view class="item">
+      <!-- 左侧图片 -->
+      <view class="item_image">
+        <image src="/image/item4_image.png" mode=""/>
+      </view>
+      <!-- 右侧文字 -->
+      <view class="item_info">
+        <text class="item_text_title">Universe AI艺术展</text>
+        <text class="item_text_time">2019年3月16日</text>
+        <text class="item_text_state2">
+        已完成 <text class="item_text_evaluate">去评价</text>
+        </text>          
+      </view>
+    </view>
+  </view>
+  </t-tab-panel>
+<!-- 全部活动 -->
+  <t-tab-panel label="全部活动" value="2" style="{{tabPanelstyle}}">
+    <!-- item 内容 -->
+    <view>
+      <!--                      item1   内容 -->
+      <view class="item">
+        <!-- 左侧图片 -->
+        <view class="item_image">
+          <image src="/image/item1_image.png" mode=""/>
+        </view>
+        <!-- 右侧文字 -->
+        <view class="item_info">
+          <text class="item_text_title">2021 SICC服务设计创新大会</text>
+          <text class="item_text_time">2021年3月16日</text>
+          <text class="item_text_state1">待参加</text>
+        </view>
+      </view>
+      <!--                      item2   内容 -->
+      <view class="item">
+        <!-- 左侧图片 -->
+        <view class="item_image">
+          <image src="/image/item2_image.png" mode=""/>
+        </view>
+        <!-- 右侧文字 -->
+        <view class="item_info">
+          <text class="item_text_title">少年与星空 插画巡展</text>
+          <text class="item_text_time">2021年6月5日</text>
+          <text class="item_text_state2">
+          已完成 <text class="item_text_evaluate">去评价</text>
+          </text>          
+        </view>
+      </view>
+      <!--                      item3   内容 -->
+      <view class="item">
+        <!-- 左侧图片 -->
+        <view class="item_image">
+          <image src="/image/item3_image.png" mode=""/>
+        </view>
+        <!-- 右侧文字 -->
+        <view class="item_info">
+          <text class="item_text_title">2019 SICC服务设计创新大会</text>
+          <text class="item_text_time">2019年3月16日</text>
+          <text class="item_text_state2">
+          已完成 <text class="item_text_evaluate">去评价</text>
+          </text>          
+        </view>
+      </view>
+      <!--                      item4   内容 -->
+      <view class="item">
+        <!-- 左侧图片 -->
+        <view class="item_image">
+          <image src="/image/item4_image.png" mode=""/>
+        </view>
+        <!-- 右侧文字 -->
+        <view class="item_info">
+          <text class="item_text_title">Universe AI艺术展</text>
+          <text class="item_text_time">2019年3月16日</text>
+          <text class="item_text_state2">
+          已完成 <text class="item_text_evaluate">去评价</text>
+          </text>          
+        </view>
+      </view>
+    </view>    
+  </t-tab-panel>
+</t-tabs>
