@@ -1,8 +1,104 @@
-.log-list {
+/* 个人信息栏 */
+.head-box{
+  /* box位置设置 */
+  position: fixed;
+  left:15rpx;
+  top: 0rpx;
+  /* border: 2rpx solid red;  */
+  /* 边框外围 */
+  margin: 20rpx;
+  /* 内边距 */
+  padding: 20rpx;
+  /* 长宽 */
+  width: 640rpx;
+  height: 130rpx;
+  /* 圆角大小 */
+  border-radius: 30rpx;
+  /* 不透明度 */
+  opacity: 1;
+  background: #ffffff;
+} 
+
+/* 昵称 */
+.head-name{  
+  /* 字体设置 */
+  font-size: large;
+  font-weight: bold;
+  /* 文本大小，位置设置 */
+  position: fixed;
+  left:220rpx;
+  top: 50rpx;
+}
+/* 标签1 */
+.head-tag1{ 
+  /* 标签位置设置 */
+  position: fixed;
+  left:220rpx;
+  top: 100rpx;
+}
+/* 标签2 */
+.head-tag2{  
+  /* 标签位置设置 */
+  position: fixed;
+  left:320rpx;
+  top: 100rpx;
+}
+/* 图标位置设置 */
+.head-icon{
+  position: fixed;
+  right:60rpx;
+  top: 80rpx;
+}
+
+
+/*tab选项卡样式设置*/
+.custom-tabs {
+  margin: 32rpx;
+  border-radius: 30rpx;
+  /* border: 2rpx solid red;  */
+  /* 位置设置 */
+  position: fixed;
+  left:0rpx;
+  top: 200rpx;
+}
+/* item1样式设置 */
+.item{
+  /* 图片文字左右布局 */
+  display:flex;
+  padding: 20rpx;
+  border: 2rpx solid #efefef;
+  border-radius: 20rpx;
+  margin: 15rpx;
+}
+/* 图片布局 */
+.item_image image{
+  width: 250rpx;
+  height: 250rpx;
+  display:block;
+  margin-right: 20rpx;
+}
+/* 文字布局 */
+.item_info {
   display: flex;
   flex-direction: column;
-  padding: 40rpx;
+  justify-content:space-around;
 }
-.log-item {
-  margin: 10rpx;
+.item_text_title{
+  font-size: 35rpx;
+}
+.item_text_time{
+  font-size: 30rpx;
+  color: #a1a1a1;
+}
+.item_text_state1{
+  font-size: 38rpx;
+  color: #2BA471;
+}
+.item_text_state2{
+  font-size: 38rpx;
+  color: #808080;
+}
+.item_text_evaluate{
+  font-size: 38rpx;
+  color: #0004ff;
 }
