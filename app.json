@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/explore/index",
-    "pages/my/index"
+    "pages/home/index",
+    "pages/purchase-result/index",
+    "pages/my/index",
+    "pages/city-picker/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

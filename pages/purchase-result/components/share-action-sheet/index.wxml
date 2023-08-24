@@ -1,0 +1,20 @@
+<!--pages/purchase-result/components/share-action-sheet/index.wxml-->
+<t-popup visible="{{ visible }}" placement="bottom" bind:visible-change="close">
+  <view class="action-sheet">
+    <view class="section-title">分享给朋友</view>
+    <scroll-view class="section-content" scroll-x="{{ true }}" enable-flex>
+      <view wx:for="{{ friends }}" wx:key="index" class="friend">
+        <image class="friend-avatar" src="{{ item.avatar }}" mode="aspectFill" />
+        <text>{{ item.name }}</text>
+      </view>
+    </scroll-view>
+    <view class="section-title">分享到社媒</view>
+    <scroll-view class="section-content" scroll-x="{{ true }}" enable-flex>
+      <view wx:for="{{ apps }}" wx:key="index" class="app">
+        <image class="app-icon" src="{{ item.icon }}" mode="aspectFill" />
+        <text>{{ item.name }}</text>
+      </view>
+    </scroll-view>
+    <view class="cancel" hover-class="hover" bind:tap="close">取消</view>
+  </view>
+</t-popup>

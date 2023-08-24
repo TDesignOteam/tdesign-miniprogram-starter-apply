@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar",
+    "t-result": "tdesign-miniprogram/result/result",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-skeleton": "tdesign-miniprogram/skeleton/skeleton",
+    "share-action-sheet": "./components/share-action-sheet/index"
+  },
+  "navigationStyle": "custom"
+}

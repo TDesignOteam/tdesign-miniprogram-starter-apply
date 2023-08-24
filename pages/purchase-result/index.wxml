@@ -1,0 +1,55 @@
+<!--pages/purchase-result/index.wxml-->
+<t-navbar title="购买结果" left-arrow />
+
+<t-result class="result" theme="success" title="购买成功" />
+
+<navigator wx:if="{{ activity !== null }}" class="activity-card" hover-class="none" url="/pages/city-picker/index">
+  <image class="activity-image" src="{{ activity.image }}" mode="aspectFill" />
+  <view class="activity-name">{{ activity.name }}</view>
+  <view class="activity-info">
+    <view class="activity-info-item">
+      <t-icon class="icon" name="time" size="32rpx" />
+      <text>{{ utils.formatDate(activity.time) }}</text>
+    </view>
+    <view class="activity-info-item">
+      <t-icon class="icon" name="location" size="32rpx" />
+      <text>{{ activity.location }}</text>
+    </view>
+  </view>
+</navigator>
+
+<view wx:else class="activity-card">
+  <t-skeleton class="activity-image" row-col="{{ [{ width: '100%', height: '350rpx', borderRadius: '18rpx' }] }}" theme="image" animation="gradient" />
+  <t-skeleton row-col="{{ [{ width: '100%' }, { width: '60%' }] }}" theme="text" animation="gradient" />
+</view>
+
+<view class="section-title">报名人员</view>
+<view class="attendees">
+  <view wx:for="{{ attendees }}" wx:key="index" class="attendee">
+    <image class="attendee-avatar" src="{{ item.avatar }}" mode="aspectFill" />
+    <view class="attendee-right">
+      <text class="attendee-name">{{ item.name }}</text>
+      <text class="attendee-info">{{ item.age }}岁 {{ item.job }}</text>
+    </view>
+  </view>
+</view>
+
+<view class="buttons">
+  <t-button class="button" theme="light" icon="share" size="large" variant="outline" bind:tap="openShare">分享给朋友</t-button>
+  <t-button class="button" theme="primary" size="large">去查看</t-button>
+</view>
+
+<share-action-sheet visible="{{ shareVisible }}" bind:close="closeShare" />
+
+<wxs module="utils">
+  /** 格式化日期 */
+  function formatDate(time) {
+    var date = getDate(time)
+    var y = date.getFullYear(), m = date.getMonth() + 1, d = date.getDate()
+    return  y + '年' + m + '月' + d + '日'
+  }
+
+  module.exports = {
+    formatDate: formatDate,
+  }
+</wxs>
