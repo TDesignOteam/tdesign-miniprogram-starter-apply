@@ -10,7 +10,7 @@
   "license": "MIT",
   "description": "a start-kit for wechat miniprogram powerby TDesign miniprogram",
   "dependencies": {
-    "tdesign-miniprogram": "^0.12.1"
+    "tdesign-miniprogram": "^1.1.15"
   },
   "devDependencies": {}
 }

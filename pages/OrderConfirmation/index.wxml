@@ -1,0 +1,72 @@
+<!--pages/OrderConfirmation/index.wxml-->
+<wxs module="_">
+  module.exports = {
+    contain: function (arr, key) { return arr.indexOf(key) > -1 }
+  }
+</wxs>
+<view class="order-sure">
+  <view class="top-message-card">
+    <view class="top-title">
+      <text>{{title}}</text>
+    </view>
+    <view class="date-address">
+      <view>
+        <t-icon name="time" size="28rpx" color="#0052d9" style="margin-right: 10rpx;" />
+        <text>{{date}}</text>
+      </view>
+      <view>
+        <t-icon name="location" size="28rpx" color="#0052d9" style="margin:0 10rpx 0 38rpx" />
+        <text>{{address}}</text>
+      </view>
+    </view>
+    <t-divider style="margin-bottom: 0px;" />
+  </view>
+  <view class="order-wrapper">
+    <view class="content-detail">
+      <view class="title-bar">
+        <text>人员信息</text>
+        <t-button size="extra-small" shape="round" class="addMember">+ 增加人员</t-button>
+      </view>
+      <t-checkbox-group t-class="horizontal-box" value="{{member_message}}" bind:change="memberChange">
+        <view wx:for="{{member_message}}" wx:key="index" wx:for-item="tag" class="card {{_.contain(current_name, index) ? 'card--active' :current_name.indexOf(index)}}">
+          <t-icon wx:if="{{_.contain(current_name, index)}}" name="check" t-class="card__icon" ariaHidden="{{true}}" />
+          <t-checkbox value="{{index}}" label="{{tag.name}}" icon="none" />
+        </view>
+      </t-checkbox-group>
+    </view>
+    <view class="content-detail">
+      <view class="title-bar">
+        <text>票类场次</text>
+      </view>
+      <t-checkbox-group value="{{ticket_time}}" bind:change="timeChange">
+        <view wx:for="{{ticket_time}}" wx:key="index" wx:for-item="tag" class="card {{_.contain(current_time, index) ? 'card--active' : current_time.indexOf(index)}}">
+          <t-icon wx:if="{{_.contain(current_time, index)}}" name="check" t-class="card__icon" ariaHidden="{{true}}" />
+          <t-checkbox value="{{index}}"  label="{{tag.time}}" icon="none"/>
+        </view>
+      </t-checkbox-group>
+    </view>
+    <view class="content-detail">
+      <view class="title-bar">
+        <text>票类价格</text>
+      </view>
+      <t-checkbox-group value="{{ticket_price}}" bind:change="ticketChange">
+        <view wx:for="{{ticket_price}}" wx:key="index" wx:for-item="tag" class="card {{_.contain(current_ticket, index) ? 'card--active' : current_ticket.indexOf(index)}}">
+          <t-icon wx:if="{{_.contain(current_ticket, index)}}" name="check" t-class="card__icon" ariaHidden="{{true}}" />
+          <t-checkbox value="{{index}}"  label="{{tag.project}}" icon="none">
+              <view style="float:right;display:flex">
+                <view style="font-weight:600">{{tag.now_price}}元</view>
+                <view wx:if="{{tag.before_price!==''}}" class="money-show">{{tag.before_price}}元</view>
+              </view>
+          </t-checkbox>
+        </view>
+      </t-checkbox-group>
+    </view>
+  </view>
+  <view class="wx-pay-cover">
+    <view class="wx-pay">
+      <view>待支付：</view>
+      <view class="all-money">￥{{all_price}}</view>
+      <t-button theme="primary" t-class="pay-button">确认购买</t-button>
+    </view>
+  </view>
+</view>
