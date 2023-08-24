@@ -1,0 +1,111 @@
+<!--pages/my/PersonList/index.wxml-->
+<view class='person-info-detail'>
+ <t-cell-group class="from-content">
+    <t-cell  class="form-cell" title="设为默认"  hover>
+      <t-switch defaultValue="{{isDefault}}" slot="note" />
+    </t-cell>
+    <t-cell class="form-cell" title="姓名" t-class-title="t-cell-title"  required>
+      <t-input 
+      class="info" 
+      slot="note" 
+      borderless 
+      value="{{name}}"
+      type="text"
+      bindchange="onInputValue"
+      data-item="name"
+      placeholder="请输入您的姓名"/>
+    </t-cell>
+    <t-cell  class="form-cell" right-icon="calendar"
+    title="生日"
+    hover
+    t-class-note = 't-class-icon'
+    data-mode="date"
+    bindtap="showPicker"
+    t-class="panel-item"   required>
+      <t-input
+      slot="note"
+      class='info'
+      placeholder="请选择您的生日"
+      readonly
+      borderless 
+      value="{{birthday}}"
+      disabled />
+    </t-cell>
+    <t-cell class="form-cell" title="手机号" t-class-title="t-cell-title"  t-class-note="t-cell-note"    required>
+      <t-input 
+      class="info" 
+      slot="note" 
+      borderless 
+      value="{{phone}}"
+      type="number"
+      maxlength="11"
+      bindchange="onInputValue"
+      data-item="phone"
+      placeholder="请输入您的手机号码"/>
+    </t-cell>
+    <t-cell class="form-cell" title="身份证" t-class-title="t-cell-title"  t-class-note="t-cell-note"    required>
+      <t-input 
+      class="info" 
+      slot="note" 
+      borderless 
+      value="{{IDCard}}"
+      type="number"
+      bindchange="onInputValue"
+      data-item="IDCard"
+      placeholder="请输入您的身份证号码"/>
+    </t-cell>
+    <t-cell class="form-cell" title="邮箱" t-class-title="t-cell-title"  t-class-note="t-cell-note"   >
+      <t-input 
+      class="info" 
+      slot="note" 
+      borderless 
+      type="text"
+      value="{{Email}}"
+      data-item="Email"
+      bindchange="onInputValue"
+      placeholder="请输入您的邮箱"/>
+    </t-cell>
+    <t-cell class="form-cell"  title="职业"  t-class-note ='t-class-icon' arrow hover  bind:click="onOccupationPicker">
+      <t-input
+      slot="note"
+      class='info'
+      placeholder="请选择您的职业"
+      readonly
+      borderless 
+      value="{{occupation}}"
+      disabled>
+      </t-input>
+    </t-cell>
+  </t-cell-group>
+    <t-button 
+      class="verify-button"
+      theme="primary"
+      size="large"
+      bindtap="submit"
+      block>确定
+    </t-button>
+<!--时间选择器-->
+    <!-- 年月日 -->
+    <t-date-time-picker
+      title="选择日期"
+      visible="{{dateVisible}}"
+      defaultValue="{{date}}"
+      format="YYYY-MM-DD"
+      bindconfirm="onColumnChange"
+      bindcancel="hidePicker"
+      start="{{start}}"
+      end="{{end}}"/>
+  <!--职业选择-->
+    <t-picker
+      visible="{{OccupationVisible}}"
+      value="{{OccupationValue}}"
+      data-key="city"
+      title="选择职业"
+      cancelBtn="取消"
+      confirmBtn="确认"
+      bindconfirm="onOccupationConfirm"
+      bindcancel="onOccupationCancel">
+      <t-picker-item options="{{Occupations}}" />
+    </t-picker>
+    <t-toast id="t-toast" />
+</view>
