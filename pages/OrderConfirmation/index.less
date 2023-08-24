@@ -1,0 +1,148 @@
+.order-sure {
+  box-sizing: border-box;
+  background: #ffffff;
+  padding: 24rpx 32rpx calc(env(safe-area-inset-bottom) + 136rpx);
+  min-height: 100vh;
+  font-family: "PingFang SC";
+
+  .top-message-card{
+    height: 144rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .top-title text{
+      font-size: 40rpx;
+      font-weight: 600;
+    }
+    .date-address{
+      font-size: 28rpx;
+      display: flex;
+
+      view{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .order-wrapper{
+    padding-top: 32rpx;
+
+    .content-detail{
+      margin-bottom: 48rpx;
+      
+      .title-bar{
+        font-size: 32rpx;
+        line-height: 56rpx;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+
+        .addMember{
+          width: 188rpx;
+          margin:0;
+        }
+      }  
+    }
+  }
+  // 下方悬浮
+  .wx-pay-cover {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    padding-bottom: env(safe-area-inset-bottom);
+    border-top: 0.5px solid #e7e7e7;
+
+    .wx-pay {
+      height: 160rpx;
+      box-sizing: border-box;
+      padding: 0rpx 32rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 28rpx;
+      .all-money{
+        font-size:40rpx;
+        color:#0052D9;
+        font-weight: 600;
+      }
+      .pay-button{
+        width: 400rpx;
+        height: 96rpx;
+        margin-right:0;
+      }
+    }
+  }
+  
+  
+}
+/* 组件样式 */
+.card {
+  position: relative;
+  margin: 24rpx 0 24rpx 0;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 3rpx solid #DCDCDC;
+}
+
+.card--active {
+  border-color: #0052d9;
+}
+
+.card--active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  border: 14px solid #0052d9;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+}
+
+.card__icon {
+  color: #fff;
+  position: absolute;
+  left: 1.5px;
+  top: 1.5px;
+  z-index: 1;
+}
+
+/* 横向布局 */
+.horizontal-box {
+  display: flex;
+  align-items: center;
+  margin: 32rpx 0 24rpx 0;
+}
+
+.horizontal-box .card {
+  width: 214rpx;
+  margin: 0;
+}
+
+.horizontal-box .card + .card {
+  margin-left: 24rpx;
+}
+
+.horizontal-box .card::after {
+  border-width: 12px;
+}
+
+.horizontal-box .card__icon {
+  font-size: 12px;
+}
+.money-show{
+  text-decoration:line-through;
+  margin-left: 8rpx;
+  color:rgba(0, 0, 0, 0.6)
+}
+
+
+
+
+
