@@ -7,25 +7,21 @@ const innerNameReg = '^[\u4e00-\u9fa5]{2,50}$'
 const innerIDCardReg = /^[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
 Page({
 
-  /**
-   * 页面的初始数据
-   */
+
   data: {
       dateVisible:false,
       isDefault:false,
       OccupationVisible:false,
       date: new Date('2021-12-23').getTime(),
       Occupations:'',
-      // 指定选择区间起始值
       start: '2000-01-01 00:00:00',
       end: '2030-09-09 12:12:12',
 
-      //信息
       name:'',
       birthday:'',
       phone:'',
       IDCard:'',
-      Emali:'',
+      Email:'',
       occupation:'',
   },
   onLoad(options){
@@ -50,7 +46,6 @@ Page({
       });
     this.hidePicker();
   },
-  //职业选择器
   onOccupationPicker(e){
     this.setData({
       OccupationVisible: true,
@@ -121,7 +116,7 @@ Page({
     if (!phoneRegExp.test(phone)) 
     {
       return {
-        isLegal: false,
+        isLegal:false,
         tips: '请填写正确的手机号',
       };
     }
@@ -138,8 +133,7 @@ Page({
     }
   },
   submit(e){
-    const { isLegal, tips } = this.onVerifyInputLegel();
-    if(!isLegal){
+    const {tips} = this.onVerifyInputLegel();
       Toast({
         context: this,
         selector: '#t-toast',
@@ -147,8 +141,23 @@ Page({
         icon: '',
         duration: 1000,
       });
+    if(tips!='添加成功')
       return;
-    }
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2];
+    prevPage.setData({
+      　 addPerson:{
+          name:this.data.name,
+          birthday:this.data.birthday,
+          phone:this.data.phone,
+          IDCard:this.data.IDCard,
+          Email:this.data.Email,
+          occupation:this.data.occupation,
+      }
+      })　　
+    wx.navigateBack({
+      delta:1
+    })
     
   }
 })

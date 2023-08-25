@@ -1,4 +1,3 @@
-<!--pages/my/PersonList/index.wxml-->
 <view class='person-info-detail'>
  <t-cell-group class="from-content">
     <t-cell  class="form-cell" title="设为默认"  hover>
@@ -84,8 +83,6 @@
       bindtap="submit"
       block>确定
     </t-button>
-<!--时间选择器-->
-    <!-- 年月日 -->
     <t-date-time-picker
       title="选择日期"
       visible="{{dateVisible}}"
@@ -95,7 +92,6 @@
       bindcancel="hidePicker"
       start="{{start}}"
       end="{{end}}"/>
-  <!--职业选择-->
     <t-picker
       visible="{{OccupationVisible}}"
       value="{{OccupationValue}}"
