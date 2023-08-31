@@ -1,4 +1,2 @@
-<!--logs.wxml-->
-<view class="container">
-  My Page
-</view>
+<!--pages/my/index.wxml-->
+<text>pages/my/index.wxml</text>

@@ -1,0 +1,6 @@
+<!--pages/home/components/loading-card/index.wxml-->
+<view class="card">
+  <t-skeleton rowCol="{{ [{ type: 'rect', size: '240rpx' }] }}" animation="gradient" loading />
+  <t-skeleton class="content" rowCol="{{ [{ width: '100%' }, {width: '40%'}, {width: '70%'}] }}" animation="gradient" loading />
+</view>
+

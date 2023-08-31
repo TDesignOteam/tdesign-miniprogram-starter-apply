@@ -1,45 +1,31 @@
-
+// custom-tab-bar/index.js
 Component({
+
+  /** 组件的初始数据 */
   data: {
-    value: 'index',
-    list: [{
-      icon: 'home',
-      value: 'index',
-      label: '首页',
-    },{
-      icon: 'control-platform',
-      value: 'explore',
-      label: '发现',
-    }, {
-      icon: 'user',
-      value: 'my',
-      label: '我的'
-    }]
+    value: '',
+    list: [
+      { value: 'home', label: '首页', icon: 'home' },
+      { value: 'my', label: '我的', icon: 'user' },
+    ],
   },
   lifetimes: {
     ready() {
       const pages = getCurrentPages();
       const curPage = pages[pages.length - 1];
-
       if (curPage) {
         const nameRe = /pages\/(\w+)\/index/.exec(curPage.route);
-
-        if (nameRe[1]) {
-          this.setData({
-            value: nameRe[1]
-          })
-        }
+        if (nameRe && nameRe[1])
+          this.setData({ value: nameRe[1] })
       }
     }
   },
-  methods: {
-    handleChange(e) {
-      const { value } = e.detail;
 
-      // this.setData({ value });
-      wx.switchTab({
-        url: `/pages/${value}/index`,
-      })
-    }
+  /** 组件的方法列表 */
+  methods: {
+    onChange(event) {
+      const { value } =  event.detail
+      wx.switchTab({ url: `/pages/${value}/index` })
+    },
   }
 })
