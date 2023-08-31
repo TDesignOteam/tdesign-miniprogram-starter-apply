@@ -1,0 +1,27 @@
+<!--pages/home/components/card/index.wxml-->
+<navigator class="card" hover-class="none" url="{{ '/pages/activity/index?activityId=' + activityId }}">
+  <image class="image" src="{{ activity.image }}" mode="aspectFill" />
+  <view class="content">
+    <view class="name">{{ activity.name }}</view>
+    <view class="rate">
+      <t-rate value="{{ activity.rate }}" gap="{{ 6 }}" disabled allow-half size="32rpx" />
+      <text>{{ activity.rate }}分</text>
+    </view>
+    <view class="price">{{ utils.formatPrice(activity.bottomPrice, activity.topPrice) }}</view>
+  </view>
+</navigator>
+
+<wxs module="utils">
+  /** 格式化价格 */
+  function formatPrice(bottomPrice, topPrice) {
+    if (bottomPrice === 0 && topPrice === 0)
+      return '免费活动'
+    if (bottomPrice === topPrice)
+      return '￥' + bottomPrice.toFixed(2)
+    return '￥' + bottomPrice.toFixed(2) + ' - ￥' + topPrice.toFixed(2)
+  }
+
+  module.exports = {
+    formatPrice: formatPrice
+  }
+</wxs>

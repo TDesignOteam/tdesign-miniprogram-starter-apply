@@ -1,0 +1,18 @@
+<!--pages/city-picker/index.wxml-->
+<t-navbar title="选择城市" left-arrow />
+<view class="current" bind:tap="selectCity" data-city="{{ currentCity }}">
+  <t-icon name="location" size="48rpx" />
+  <text>{{ loading ? '正在定位...' : currentCity || '定位失败' }}</text>
+  <t-button class="relocation" theme="default" size="extra-small" shape="round" disabled="{{ loading }}" catch:tap="getCurrentCity">更新定位</t-button>
+</view>
+
+<t-indexes index-list="{{ indexList }}" sticky="{{ false }}">
+  <block wx:for="{{ cities }}" wx:key="index">
+    <t-indexes-anchor index="{{ item.index }}" />
+    <t-cell-group>
+      <t-cell wx:for="{{ item.children }}" wx:key="city" wx:for-item="city" title="{{ city }}" hover bind:tap="selectCity" data-city="{{ city }}">
+        <t-icon wx:if="{{ city === selectedCity }}" class="selected" name="check" size="48rpx"slot="note" />
+      </t-cell>
+    </t-cell-group>
+  </block>
+</t-indexes>

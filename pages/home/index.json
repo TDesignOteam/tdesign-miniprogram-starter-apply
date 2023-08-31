@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "nav-bar": "./components/navigation-bar/index",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-divider": "tdesign-miniprogram/divider/divider",
+    "t-calendar": "tdesign-miniprogram/calendar/calendar",
+    "t-slider": "tdesign-miniprogram/slider/slider",
+    "t-button": "tdesign-miniprogram/button/button",
+    "loading-card": "./components/loading-card/index",
+    "card": "./components/card/index"
+  },
+  "navigationStyle": "custom"
+}

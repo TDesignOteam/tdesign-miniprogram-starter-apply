@@ -1,0 +1,11 @@
+<!--pages/home/components/navigation-bar/index.wxml-->
+<view class="navigation-bar" style="background-image: url('/images/head-bg.png');">
+  <view class="status-bar" style="height: {{statusBarHeight}}px;" />
+  <view class="nav-bar" style="height: {{(capsule.top - statusBarHeight) * 2 + capsule.height}}px;" bind:tap="selectCity">
+    <t-icon name="location" size="40rpx" />
+    <text class="city">{{ loading ? '正在定位...' : city || '定位失败' }}</text>
+  </view>
+  <view class="search">
+    <t-search placeholder="搜索活动" shape="round" />
+  </view>
+</view>

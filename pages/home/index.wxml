@@ -1,0 +1,128 @@
+<!--pages/home/index.wxml-->
+<view class="navigation-bar">
+  <nav-bar bind:select-city="refreshActivities" />
+</view>
+
+<!-- 热门推荐 -->
+<view class="section-title-hot">热门推荐</view>
+<t-swiper 
+  t-class="t-swiper"
+  t-class-image="t-swiper-image"
+  t-class-nav="t-swiper-nav"
+  current="{{ 0 }}"
+  autoplay="{{ true }}"
+  duration="{{ 300 }}"
+  interval="{{ 5000 }}"
+  height="318rpx"
+  navigation="{{ { type: 'dots' } }}"
+  list="{{ utils.getImages(hotActivities) }}"
+  image-props="{{ { shape: 'round' } }}"
+  previous-margin="80rpx"
+  next-margin="80rpx"
+  bind:click="handleTapHotActivity" />
+
+<!-- 全部活动 -->
+<view class="section-title-all">全部活动</view>
+<view class="tabs" style="top: {{navigationBarHeight}}px;">
+  <view class="tab{{ sortType === 0 ? ' current' : '' }}" bind:tap="changeSortType" data-type="{{ 0 }}">最新活动</view>
+  <view class="tab{{ sortType === 1 ? ' current' : '' }}" bind:tap="changeSortType" data-type="{{ 1 }}">高分活动</view>
+  <view class="tab filter-tab" bind:tap="openFilter">
+    <t-icon name="filter"></t-icon>
+    <text>筛选</text>
+  </view>
+</view>
+
+<!-- 活动筛选面板 -->
+<view style="position: absolute; z-index: 99999;">
+  <t-popup visible="{{ filterVisible }}" placement="bottom" bind:visible-change="handleFilterVisibleChange">
+    <view class="filter">
+      <view class="filter-title">
+        <text>全部筛选</text>
+        <t-icon class="filter-close" name="close" size="48rpx" bind:tap="closeFilter" />
+      </view>
+
+      <!-- 面向领域 -->
+      <view class="filter-section">
+        <view class="filter-section-title">面向领域</view>
+        <view class="filter-options">
+          <view wx:for="{{ fieldFilter }}" wx:key="index" class="filter-option{{ item.selected ? ' selected' : '' }}" data-filter="fieldFilter" data-index="{{ index }}" bind:tap="handleTapFilterOption">{{ item.text }}</view>
+        </view>
+      </view>
+
+      <!-- 活动形式 -->
+      <view class="filter-section">
+        <view class="filter-section-title">活动形式</view>
+        <view class="filter-options">
+          <view wx:for="{{ formFilter }}" wx:key="index" class="filter-option{{ item.selected ? ' selected' : '' }}" data-filter="formFilter" data-index="{{ index }}" bind:tap="handleTapFilterOption">{{ item.text }}</view>
+        </view>
+      </view>
+      <t-divider t-class="filter-divider" />
+      
+      <!-- 活动日期 -->
+      <view class="filter-section">
+        <view class="filter-section-title">活动日期</view>
+        <view class="filter-date">
+          <text>{{ utils.formatDate(dateFilter.startTime, dateFilter.endTime) }}</text>
+          <t-button t-class="filter-date-button" theme="light" size="extra-small" bind:tap="openDateFilter">选择日期</t-button>
+        </view>
+        <t-calendar visible="{{ dateFilter.visible }}" bind:confirm="selectDate" type="range" />
+      </view>
+      <t-divider t-class="filter-divider" />
+      
+      <!-- 价格区间 -->
+      <view class="filter-section">
+        <view class="filter-section-title">价格范围(元)</view>
+        <view class="filter-price">
+          <t-slider range show-extreme-value max="{{ 588 }}" label="${value}" value="{{ [priceFilter.bottomPrice, priceFilter.topPrice] }}" bind:change="selectPrice" />
+        </view>
+      </view>
+
+      <!-- 筛选面板底部按钮（重置、完成） -->
+      <view class="filter-bottom">
+        <t-button t-class="filter-button" theme="light" size="large" bind:tap="resetFilter">重置</t-button>
+        <t-button t-class="filter-button" theme="primary" size="large" bind:tap="saveFilter">完成</t-button>
+      </view>
+    </view>
+  </t-popup>
+</view>
+<!-- 活动列表 -->
+<view class="activities">
+  <card wx:for="{{ activities }}" wx:key="index" activity="{{ item }}" />
+
+  <loading-card wx:if="{{ activities.length === 0 && loading }}" />
+  <view wx:if="{{ activities.length === 0 && !loading }}" class="extra">暂时没有活动</view>
+  <view wx:if="{{ activities.length > 0 && loading }}" class="extra">正在加载…</view>
+</view>
+
+<wxs module="utils">
+  /** 从热门推荐活动中获取图片数组 */
+  function getImages(activities) {
+    var list = []
+    activities.forEach(function (activity) {
+      if (activity.image)
+        list.push(activity.image)
+    })
+    return list
+  }
+
+  /** 格式化日期 */
+  function formatDate(startTime, endTime) {
+    if (startTime === null && endTime === null)
+      return '不限'
+    endTime -= 86400000
+    var start = getDate(startTime)
+    var y1 = start.getFullYear(), m1 = start.getMonth() + 1, d1 = start.getDate()
+    if (startTime === endTime)
+      return y1 + '年' + m1 + '月' + d1 + '日'
+    var end = getDate(endTime)
+    var y2 = end.getFullYear(), m2 = end.getMonth() + 1, d2 = end.getDate()
+    if (y1 === y2)
+      return y1 + '年' + m1 + '月' + d1 + '日 - ' + m2 + '月' + d2 + '日'
+    return  y1 + '年' + m1 + '月' + d1 + '日 - ' +  y2 + '年' + m2 + '月' + d2 + '日'
+  }
+
+  module.exports = {
+    getImages: getImages,
+    formatDate: formatDate,
+  }
+</wxs>

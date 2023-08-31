@@ -20,6 +20,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    city: null,       // 当前选择的城市
   }
 })
