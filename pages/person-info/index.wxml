@@ -1,4 +1,4 @@
-<view class='person-info-detail'>
+<view class="person-info-detail">
  <t-cell-group class="from-content">
     <t-cell  class="form-cell" title="设为默认"  hover>
       <t-switch defaultValue="{{isDefault}}" slot="note" />
@@ -17,13 +17,13 @@
     <t-cell  class="form-cell" right-icon="calendar"
     title="生日"
     hover
-    t-class-note = 't-class-icon'
+    t-class-note = "t-class-icon"
     data-mode="date"
     bindtap="showPicker"
     t-class="panel-item"   required>
       <t-input
       slot="note"
-      class='info'
+      class="info"
       placeholder="请选择您的生日"
       readonly
       borderless 
@@ -64,10 +64,10 @@
       bindchange="onInputValue"
       placeholder="请输入您的邮箱"/>
     </t-cell>
-    <t-cell class="form-cell"  title="职业"  t-class-note ='t-class-icon' arrow hover  bind:click="onOccupationPicker">
+    <t-cell class="form-cell"  title="职业"  t-class-note ="t-class-icon" arrow hover  bind:click="onOccupationPicker">
       <t-input
       slot="note"
-      class='info'
+      class="info"
       placeholder="请选择您的职业"
       readonly
       borderless 
