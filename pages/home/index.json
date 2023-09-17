@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "custom-top-bar": "./components/custom-top-bar/index",
+    "t-search": "tdesign-miniprogram/search/search",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
+    "t-row": "tdesign-miniprogram/row/row",
+    "t-col": "tdesign-miniprogram/col/col",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "info-card": "/components/info-card/index"
+  },
+  "navigationStyle": "custom"
+}

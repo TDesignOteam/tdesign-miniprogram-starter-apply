@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="fixed-container" style="background-image: url(/src/imgs/topbar/topbar-bc.png);">
+  <custom-top-bar></custom-top-bar>
+
+  <view class="search">
+    <view class="example-search">
+      <t-search placeholder="搜索活动" shape="round" />
+    </view>
+  </view>
+</view>
+
+<scroll-view scroll-y="true" style="padding-top: {{navBarHeight + 56}}px;">
+  <view class="swiper">
+    <view class="title">热门推荐</view>
+    <view class="card-theme">
+      <t-swiper height="217px" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" bindchange="onChange" navigation="{{ { type: 'dots' } }}" list="{{swiperList}}" image-props="{{ { shape: 'round' } }}" previousMargin="34px" nextMargin="34px" t-class-nav="card-theme-nav" />
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="title">全部活动</view>
+    <t-row>
+      <t-col span="8" class="colTitle {{selectedColTitle == 1 ? 'selectedColTitle' : ''}}" bindtap="selectColTitile" data-index="1">最新活动</t-col>
+      <t-col span="8" class="colTitle {{selectedColTitle == 2 ? 'selectedColTitle' : ''}}" bindtap="selectColTitile" data-index="2">高分活动</t-col>
+      <t-col span="8" class="colTitle">
+        <t-icon name="filter" size="18px" />
+        筛选
+      </t-col>
+    </t-row>
+    <info-card wx:for="{{atvsList}}" wx:key="index" data="{{item}}"></info-card>
+  </view>
+</scroll-view>

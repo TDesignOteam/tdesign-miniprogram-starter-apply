@@ -1,0 +1,113 @@
+/**index.wxss**/
+.fixed-container {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  background-size: cover;
+  background-color: #fff;
+
+  /* search */
+  .search {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .example-search {
+      height: 40px;
+      width: 343px;
+    }
+  }
+}
+
+scroll-view {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 112rpx);
+
+  /* title */
+  .title {
+    width: 80px;
+    height: 28px;
+    opacity: 1;
+    color: #000000e6;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "PingFang SC";
+    text-align: left;
+    line-height: 28px;
+    margin-left: 16px;
+  }
+
+  /* swiper */
+  .swiper {
+    margin-top: 13px;
+
+    .card-theme {
+      --td-swiper-radius: 0;
+      --td-swiper-item-padding: 16px 0 41.81px 0;
+      --td-swiper-center-padding: 16px 12px 41.81px 12px;
+      --td-swiper-nav-dot-color: #e7e7e7;
+      --td-swiper-nav-dot-active-color: #0052d9;
+    }
+
+    .card-theme .card-theme-nav {
+      bottom: 23.81px;
+    }
+
+    .t-swiper__item {
+      height: 217px !important;
+      transition: box-shadow 1s ease,
+        padding 0.8s ease;
+    }
+
+    .t-swiper__item[aria-hidden="false"] {
+      padding: var(--td-swiper-center-padding, 0);
+    }
+
+    .t-swiper__item[aria-hidden="false"] .t-image {
+      box-shadow: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #00000014;
+    }
+
+    .t-image {
+      height: 100% !important;
+    }
+  }
+
+  /* activesList */
+  .t-row {
+    position: relative;
+  }
+
+  .t-icon {
+    display: inline-block;
+    vertical-align: sub;
+  }
+
+  .colTitle {
+    color: #000000e6;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "PingFang SC";
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-bottom: 0.5px solid #e7e7e7;
+  }
+
+  .selectedColTitle {
+    color: #0052d9;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .colTitle:nth-child(3)::before {
+    content: '';
+    width: 1px;
+    height: 22px;
+    background-color: #e7e7e7;
+    position: absolute;
+    right: 33%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
