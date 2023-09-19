@@ -8,7 +8,9 @@
     "t-row": "tdesign-miniprogram/row/row",
     "t-col": "tdesign-miniprogram/col/col",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "info-card": "/components/info-card/index"
+    "info-card": "/components/info-card/index",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-button": "tdesign-miniprogram/button/button"
   },
   "navigationStyle": "custom"
 }

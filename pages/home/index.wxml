@@ -30,3 +30,14 @@
     <info-card wx:for="{{atvsList}}" wx:key="index" data="{{item}}"></info-card>
   </view>
 </scroll-view>
+
+<!-- 筛选面板弹窗 -->
+<t-popup visible="{{popupVisible}}" bind:visible-change="onVisibleChange" placement="bottom" class="popup">
+  <view class="block">
+    <view class="header">
+      <view class="btn btn--confirm" aria-role="button">确定</view>
+      <view class="title">全部筛选</view>
+      <view class="btn btn--cancel" aria-role="button">取消</view>
+    </view>
+  </view>
+</t-popup>

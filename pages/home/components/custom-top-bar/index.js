@@ -1,8 +1,10 @@
 // components/custom-top-bar/index.js
 const app = getApp();
+
 // 使用定位服务
-var QQMapWX = require("../../../../lib/qqmap/qqmap-wx-jssdk");
-var qqmapsdk;
+import {
+  fetchLocation
+} from '../../../../services/fetchLocation';
 
 Component({
   /**
@@ -23,37 +25,28 @@ Component({
     menuHeight: app.globalData.menuHeight,
     menuWidth: app.globalData.menuWidth,
 
-    city: '深圳市',
-    title: '主页',
-
-    locateKey: 'K3NBZ-O7NK5-4JLIM-IWXVC-MOD67-6PF5G'
+    city: '深圳市'
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    getLocation: function () {
-      let component = this;
-      qqmapsdk.reverseGeocoder({
-        success: function(res){
-          console.log(res.result.ad_info.city);
-          component.setData({
-            city: res.result.ad_info.city
-          })
-        },
-        fail: function(error){
-          // console.log(error);
-        }
+    // 跳转选择地区的页面
+    chooseLocation: function () {
+      wx.navigateTo({
+        url: '/pages/home/chooseLocation/index',
       })
     }
   },
   lifetimes: {
-    attached: function(){
-      qqmapsdk = new QQMapWX({
-        key: this.data.locateKey
+    attached: function () {
+      fetchLocation().then((data)=>{
+        console.log(data);
+        // this.setData({
+        //   city: data
+        // })
       });
-      this.getLocation();
     }
   }
 })

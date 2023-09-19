@@ -16,7 +16,9 @@ Page({
     swiperList: [],
     atvsList: [],
 
-    selectedColTitle: 1
+    selectedColTitle: 1,
+
+    popupVisible: false
   },
 
   // 转换标题的事件
@@ -25,14 +27,6 @@ Page({
       selectedColTitle: parseInt(e.currentTarget.dataset.index)
     });
   },
-
-  // 跳转到筛选地区的页面
-  // gotoFilter(){
-  //   console.log('gotofilter');
-  //   wx.navigateTo({
-  //     url: '/pages/home/filter/index',
-  //   })
-  // },
 
   // 加载页面数据
   async loadData() {
