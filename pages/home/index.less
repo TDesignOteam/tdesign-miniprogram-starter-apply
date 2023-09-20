@@ -115,7 +115,7 @@ scroll-view {
 .popup {
   .block {
     width: 100vw;
-    height: 656px;
+    height: 84vh;
     background: #fff;
     border-top-left-radius: 16rpx;
     border-top-right-radius: 16rpx;
@@ -127,9 +127,14 @@ scroll-view {
   }
 
   .header {
+    height: 6.8vh;
+    padding: 0 4.3vw;
     display: flex;
     align-items: center;
-    height: 116rpx;
+  }
+
+  .hidden {
+    visibility: hidden;
   }
 
   .title {
@@ -139,16 +144,109 @@ scroll-view {
     font-size: 36rpx;
   }
 
-  .btn {
-    font-size: 32rpx;
-    padding: 32rpx;
+  .cancel {
+    color: #000000;
   }
 
-  .btn--cancel {
-    color: rgba(0, 0, 0, .6);
+  .all {
+    width: 91.5vw;
+    margin: 0 4.3vw;
+    position: relative;
+
+    view text {
+      display: block;
+      margin-bottom: 1.5vh;
+      color: #000000e6;
+      font-size: 1.7vh;
+      font-weight: 600;
+      font-family: "PingFang SC";
+      text-align: left;
+      line-height: 2.7vh;
+    }
+
+    .btnContainer {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-column-gap: 3.2vw;
+      grid-row-gap: 1.5vh;
+    }
+
+    .form {
+      margin-top: 3vh;
+      padding-bottom: 3vh;
+      border-bottom: 0.5px solid #e7e7e7;
+    }
+
+    .date {
+      margin-top: 3vh;
+      position: relative;
+      padding-bottom: 6.4vw;
+      border-bottom: 0.5px solid #e7e7e7;
+      color: #000000e6;
+      font-size: 2vh;
+      font-weight: 400;
+      font-family: "PingFang SC";
+      text-align: left;
+      line-height: 3vh;
+
+      .dateBtn {
+        position: absolute;
+        height: 3.4vh;
+        width: 19.2vw;
+        right: 0;
+        border-radius: 100px;
+        font-size: 1.7vh;
+        font-weight: 600;
+        font-family: "PingFang SC";
+        text-align: center;
+        line-height: 2.7vh;
+      }
+    }
+
+    .price {
+      margin: 3vh 0;
+
+      .t-slider {
+        width: 91.5vw;
+        height: 5.7vh;
+        font-size: 1.7vh;
+      }
+    }
+
+    .bottomBtns {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        height: 5.9vh;
+        width: 44vw;
+        font-size: 2vh;
+        font-weight: 600;
+        font-family: "PingFang SC";
+        text-align: center;
+        line-height: 3vh;
+      }
+    }
   }
 
-  .btn--confirm {
-    color: #0052d9;
+  .chosingDate {
+    position: relative;
+
+    .t-calendar__title {
+      display: none;
+    }
+
+    button {
+      position: absolute;
+      bottom: -9vh;
+      height: 5.9vh;
+      width: 91.5vw;
+      margin: 0 4.3vw;
+      font-size: 2vh;
+      font-weight: 600;
+      font-family: "PingFang SC";
+      text-align: center;
+      line-height: 3vh;
+    }
   }
 }

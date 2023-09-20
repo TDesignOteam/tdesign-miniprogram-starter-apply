@@ -22,7 +22,7 @@
     <t-row>
       <t-col span="8" class="colTitle {{selectedColTitle == 1 ? 'selectedColTitle' : ''}}" bindtap="selectColTitile" data-index="1">最新活动</t-col>
       <t-col span="8" class="colTitle {{selectedColTitle == 2 ? 'selectedColTitle' : ''}}" bindtap="selectColTitile" data-index="2">高分活动</t-col>
-      <t-col span="8" class="colTitle">
+      <t-col span="8" class="colTitle" bindtap="handlePopup">
         <t-icon name="filter" size="18px" />
         筛选
       </t-col>
@@ -31,13 +31,64 @@
   </view>
 </scroll-view>
 
-<!-- 筛选面板弹窗 -->
-<t-popup visible="{{popupVisible}}" bind:visible-change="onVisibleChange" placement="bottom" class="popup">
+<!-- 总筛选面板弹窗 -->
+<t-popup visible="{{ popupVisible }}" placement="bottom" class="popup">
   <view class="block">
+    <!-- 顶部导航 -->
     <view class="header">
-      <view class="btn btn--confirm" aria-role="button">确定</view>
+      <view style="height: 24px; width: 24px;"></view>
       <view class="title">全部筛选</view>
-      <view class="btn btn--cancel" aria-role="button">取消</view>
+      <view class="cancel" aria-role="button" bindtap="handlePopup">
+        <t-icon name="close" size="24px"></t-icon>
+      </view>
+    </view>
+    <!-- 全部筛选的面板 -->
+    <view class="all">
+      <view class="domain">
+        <text>面向领域</text>
+        <view class="btnContainer">
+          <popup-button wx:for="{{ domain }}" text="{{ item }}" reset="{{reset}}" bind:clickBtn="chooseTag" bind:finshReset="finshReset"></popup-button>
+        </view>
+      </view>
+      <view class="form">
+        <text>活动形式</text>
+        <view class="btnContainer">
+          <popup-button wx:for="{{ form }}" text="{{ item }}" reset="{{reset}}" bind:clickBtn="chooseTag" bind:finshReset="finshReset"></popup-button>
+        </view>
+      </view>
+      <view class="date">
+        <text>活动日期</text>
+        {{ startTime }}-{{ endTime }}
+        <t-button class="dateBtn" bindtap="chooseDate">选择日期</t-button>
+      </view>
+      <view class="price">
+        <text>价格范围(元)</text>
+        <t-slider show-extreme-value label="1" value="{{ priceRange }}" default-value="{{ priceDefault }}" max="{{ priceMax }}" range bind:change="choosePrice" />
+      </view>
+      <view class="bottomBtns">
+        <t-button theme="light" bindtap="reset">重置</t-button>
+        <t-button theme="primary" bindtap="submit">完成</t-button>
+      </view>
+    </view>
+  </view>
+</t-popup>
+<!-- 日期选择的弹窗 -->
+<t-popup visible="{{ choosingDate }}" placement="bottom" class="popup">
+  <view class="block">
+    <!-- 顶部导航 -->
+    <view class="header">
+      <view bindtap="chooseDate">
+        <t-icon name="chevron-left" size="24px"></t-icon>
+      </view>
+      <view class="title">选择日期</view>
+      <view class="cancel" aria-role="button" bindtap="handlePopup">
+        <t-icon name="close" size="24px"></t-icon>
+      </view>
+    </view>
+    <!-- 日期选择的面板 -->
+    <view class="chosingDate" wx:if="{{ choosingDate }}">
+      <t-calendar use-popup="{{false}}" type="range" bind:select="handleSelect" />
+      <t-button theme="primary" bindtap="comfirmDate">确认日期</t-button>
     </view>
   </view>
 </t-popup>

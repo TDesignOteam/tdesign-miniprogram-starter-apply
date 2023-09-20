@@ -10,7 +10,10 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "info-card": "/components/info-card/index",
     "t-popup": "tdesign-miniprogram/popup/popup",
-    "t-button": "tdesign-miniprogram/button/button"
+    "t-button": "tdesign-miniprogram/button/button",
+    "popup-button": "./components/popup-button/index",
+    "t-slider": "tdesign-miniprogram/slider/slider",
+    "t-calendar": "tdesign-miniprogram/calendar/calendar"
   },
   "navigationStyle": "custom"
 }
