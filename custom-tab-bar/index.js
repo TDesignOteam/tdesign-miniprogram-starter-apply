@@ -4,13 +4,10 @@ Component({
     value: 'index',
     list: [{
       icon: 'home',
-      value: 'index',
+      value: 'home',
       label: '首页',
-    },{
-      icon: 'control-platform',
-      value: 'explore',
-      label: '发现',
-    }, {
+    },
+    {
       icon: 'user',
       value: 'my',
       label: '我的'
@@ -24,7 +21,7 @@ Component({
       if (curPage) {
         const nameRe = /pages\/(\w+)\/index/.exec(curPage.route);
 
-        if (nameRe[1]) {
+        if (nameRe) {
           this.setData({
             value: nameRe[1]
           })

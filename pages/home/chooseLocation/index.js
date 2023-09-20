@@ -1,11 +1,19 @@
-// pages/explore/index.js
+// pages/home/chooseLocation/index.js
+import {
+  fetchLocation
+} from '../../../services/fetchLocation';
+import { cities } from '../../../config/cities';
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    currentCity: '深圳',
+    indexList: [],
+    hotCities: cities.hotCities,
+    sortedCities: cities.sortedCities
   },
 
   /**
@@ -19,7 +27,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.setData({
+      indexList: this.data.sortedCities.map((item) => item.index),
+    });
   },
 
   /**
@@ -62,5 +72,21 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  // 更新定位
+  updateLocation() {
+    fetchLocation().then((data) => {
+      console.log(data);
+      // this.setData({
+      //   currentLocation: data
+      // })
+    });
+  },
+  // 更换当前城市
+  changeCity(e) {
+    this.setData({
+      currentCity: e.currentTarget.dataset.city
+    })
   }
 })
