@@ -1,14 +1,4 @@
 {
   "navigationBarTitleText": "我的",
-  "usingComponents": {
-    "t-avatar": "tdesign-miniprogram/avatar/avatar",
-    "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
-    "t-icon": "tdesign-miniprogram/icon/icon",
-    "custom-top-bar": "./components/custom-top-bar/index",
-    "t-tabs": "tdesign-miniprogram/tabs/tabs",
-    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
-    "t-image": "tdesign-miniprogram/image/image",
-    "info-card": "./components/info-card/index"
-  },
-  "navigationStyle": "custom"
+  "usingComponents": {}
 }

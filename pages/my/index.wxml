@@ -1,24 +1,4 @@
-<!--my/index.wxml-->
-<view class="background" style="background-image: url(../../src/imgs/top-bar/topbar-bc.png);">
-</view>
-<custom-top-bar></custom-top-bar>
-<view class="content" style="top: {{navBarHeight}}px;">
-  <view class="myInfo">
-    <t-avatar class="profile" image="{{profile}}" size="64px" />
-    <view class="info">
-      <view class="username">{{username}}</view>
-      <view class="tags">
-        <text wx:for="{{tags}}">{{item}}</text>
-      </view>
-    </view>
-    <t-icon name="edit-1" size="20px" bind:click="onIconTap" />
-  </view>
-  <view class="myAtvs">
-    <t-tabs defaultValue="{{0}}" t-class="custom-tabs">
-      <t-tab-panel label="待参加" value="0" />
-      <t-tab-panel label="已完成" value="1" />
-      <t-tab-panel label="全部活动" value="2" />
-    </t-tabs>
-    <info-card wx:for="{{myAtvs}}" info="{{item}}"></info-card>
-  </view>
+<!--logs.wxml-->
+<view class="container">
+  My Page
 </view>
