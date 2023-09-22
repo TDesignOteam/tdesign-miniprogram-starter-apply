@@ -1,8 +1,85 @@
-.log-list {
-  display: flex;
-  flex-direction: column;
-  padding: 40rpx;
+page {
+  background: #f5f6f7;
+  position: relative;
 }
-.log-item {
-  margin: 10rpx;
+
+.background {
+  height: 163px;
+  background-color: #fff;
+  background-size: cover;
+}
+
+custom-top-bar {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 112rpx);
+}
+
+.myInfo {
+  width: 343px;
+  height: 96px;
+  border-radius: 12px;
+  background: #ffffff;
+  margin: 0 auto 16px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  .profile {
+    margin: 16px;
+  }
+
+  .info {
+    .username {
+      color: #000000e6;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: "PingFang SC";
+      line-height: 24px;
+      margin-bottom: 8px;
+    }
+
+    .tags {
+      text {
+        display: inline-block;
+        height: 24px;
+        border-radius: 3px;
+        background: #f3f3f3;
+        color: #000000e6;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: "PingFang SC";
+        text-align: center;
+        line-height: 24px;
+        margin-right: 8px;
+        padding: 0 8px;
+      }
+    }
+  }
+
+  .t-icon {
+    position: absolute;
+    right: 16px;
+  }
+}
+
+.myAtvs {
+  width: 343px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  margin: 0 auto;
+
+  .custom-tabs {
+    height: 48px;
+  }
 }
