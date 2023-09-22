@@ -1,0 +1,45 @@
+/* components/stars-mark/index.wxss */
+.score {
+  height: 20px;
+  width: 143.6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "PingFang SC";
+  line-height: 20px;
+  display: inline-flex;
+  position: relative;
+
+  .stars-container {
+    display: inline-flex;
+    width: 100.6px;
+    position: relative;
+
+    .stars-background {
+      color: #dcdcdc;
+      display: inline-flex;
+      padding-top: 2px;
+
+      view {
+        padding-right: 5.15px;
+      }
+    }
+
+    .stars {
+      color: #e37318;
+      display: inline-flex;
+      padding-top: 2px;
+      position: absolute;
+      overflow: hidden;
+
+      view {
+        padding-right: 5.15px;
+      }
+    }
+  }
+
+  text {
+    color: #e37318;
+    position: absolute;
+    right: 0;
+  }
+}
