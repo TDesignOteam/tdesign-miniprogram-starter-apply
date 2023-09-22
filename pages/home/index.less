@@ -1,0 +1,252 @@
+/**index.wxss**/
+.fixed-container {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  background-size: cover;
+  background-color: #fff;
+
+  /* search */
+  .search {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .example-search {
+      height: 40px;
+      width: 343px;
+    }
+  }
+}
+
+scroll-view {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 112rpx);
+
+  /* title */
+  .title {
+    width: 80px;
+    height: 28px;
+    opacity: 1;
+    color: #000000e6;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "PingFang SC";
+    text-align: left;
+    line-height: 28px;
+    margin-left: 16px;
+  }
+
+  /* swiper */
+  .swiper {
+    margin-top: 13px;
+
+    .card-theme {
+      --td-swiper-radius: 0;
+      --td-swiper-item-padding: 16px 0 41.81px 0;
+      --td-swiper-center-padding: 16px 12px 41.81px 12px;
+      --td-swiper-nav-dot-color: #e7e7e7;
+      --td-swiper-nav-dot-active-color: #0052d9;
+    }
+
+    .card-theme .card-theme-nav {
+      bottom: 23.81px;
+    }
+
+    .t-swiper__item {
+      height: 217px !important;
+      transition: box-shadow 1s ease,
+        padding 0.8s ease;
+    }
+
+    .t-swiper__item[aria-hidden="false"] {
+      padding: var(--td-swiper-center-padding, 0);
+    }
+
+    .t-swiper__item[aria-hidden="false"] .t-image {
+      box-shadow: 0 6px 30px 5px #0000000d, 0 16px 24px 2px #0000000a, 0 8px 10px -5px #00000014;
+    }
+
+    .t-image {
+      height: 100% !important;
+    }
+  }
+
+  /* activesList */
+  .t-row {
+    position: relative;
+  }
+
+  .t-icon {
+    display: inline-block;
+    vertical-align: sub;
+  }
+
+  .colTitle {
+    color: #000000e6;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "PingFang SC";
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-bottom: 0.5px solid #e7e7e7;
+  }
+
+  .selectedColTitle {
+    color: #0052d9;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .colTitle:nth-child(3)::before {
+    content: '';
+    width: 1px;
+    height: 22px;
+    background-color: #e7e7e7;
+    position: absolute;
+    right: 33%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.popup {
+  .block {
+    width: 100vw;
+    height: 84vh;
+    background: #fff;
+    border-top-left-radius: 16rpx;
+    border-top-right-radius: 16rpx;
+  }
+
+  .wrapper {
+    margin: 32rpx;
+    display: block;
+  }
+
+  .header {
+    height: 6.8vh;
+    padding: 0 4.3vw;
+    display: flex;
+    align-items: center;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  .title {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    font-size: 36rpx;
+  }
+
+  .cancel {
+    color: #000000;
+  }
+
+  .all {
+    width: 91.5vw;
+    margin: 0 4.3vw;
+    position: relative;
+
+    view text {
+      display: block;
+      margin-bottom: 1.5vh;
+      color: #000000e6;
+      font-size: 1.7vh;
+      font-weight: 600;
+      font-family: "PingFang SC";
+      text-align: left;
+      line-height: 2.7vh;
+    }
+
+    .btnContainer {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-column-gap: 3.2vw;
+      grid-row-gap: 1.5vh;
+    }
+
+    .form {
+      margin-top: 3vh;
+      padding-bottom: 3vh;
+      border-bottom: 0.5px solid #e7e7e7;
+    }
+
+    .date {
+      margin-top: 3vh;
+      position: relative;
+      padding-bottom: 6.4vw;
+      border-bottom: 0.5px solid #e7e7e7;
+      color: #000000e6;
+      font-size: 2vh;
+      font-weight: 400;
+      font-family: "PingFang SC";
+      text-align: left;
+      line-height: 3vh;
+
+      .dateBtn {
+        position: absolute;
+        height: 3.4vh;
+        width: 19.2vw;
+        right: 0;
+        border-radius: 100px;
+        font-size: 1.7vh;
+        font-weight: 600;
+        font-family: "PingFang SC";
+        text-align: center;
+        line-height: 2.7vh;
+      }
+    }
+
+    .price {
+      margin: 3vh 0;
+
+      .t-slider {
+        width: 91.5vw;
+        height: 5.7vh;
+        font-size: 1.7vh;
+      }
+    }
+
+    .bottomBtns {
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        height: 5.9vh;
+        width: 44vw;
+        font-size: 2vh;
+        font-weight: 600;
+        font-family: "PingFang SC";
+        text-align: center;
+        line-height: 3vh;
+      }
+    }
+  }
+
+  .chosingDate {
+    position: relative;
+
+    .t-calendar__title {
+      display: none;
+    }
+
+    button {
+      position: absolute;
+      bottom: -9vh;
+      height: 5.9vh;
+      width: 91.5vw;
+      margin: 0 4.3vw;
+      font-size: 2vh;
+      font-weight: 600;
+      font-family: "PingFang SC";
+      text-align: center;
+      line-height: 3vh;
+    }
+  }
+}

@@ -35,7 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-
+    
     // 自定义topbar相关信息
     navBarHeight: 0, // 导航栏高度
     statusBarHeight: 0, // 状态栏的高度

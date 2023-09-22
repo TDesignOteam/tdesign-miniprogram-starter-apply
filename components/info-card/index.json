@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-image": "tdesign-miniprogram/image/image",
+    "stars-mark": "/components/stars-mark/index"
+  }
+}

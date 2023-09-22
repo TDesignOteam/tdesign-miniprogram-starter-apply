@@ -1,0 +1,10 @@
+<!--components/info-card/index.wxml-->
+<view class="card">
+  <t-image src="{{data.imgUrl}}" mode="aspectFill" width="120px" height="100%" class="imag" />
+  <view class="info">
+    <text class="name">{{data.name}}</text>
+    <stars-mark score="{{data.score}}"/>
+    <text class="price" wx:if="{{!data.free}}">￥{{data.floorPrice}} -￥{{data.ceilingPrice}}</text>
+    <text class="price" wx:if="{{data.free}}">{{data.free}}</text>
+  </view>
+</view>

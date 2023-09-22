@@ -1,0 +1,19 @@
+<!--pages/home/chooseLocation/index.wxml-->
+<view class="location">
+  <view class="currentLocation">
+    <t-icon name="location" size="20px" style="margin-right: 4px;"></t-icon>{{currentCity}}市
+  </view>
+  <t-button class="btn" bindtap="updateLocation">更新定位</t-button>
+</view>
+<t-indexes sticky="{{false}}" bind:select="onSelect" index-list="{{indexList}}">
+  <view class="title">热门城市</view>
+  <t-cell-group>
+    <t-cell bindtap="changeCity" data-city="{{city}}" wx:for="{{hotCities}}" wx:key="city" wx:for-item="city" title="{{city}}" aria-role="button" />
+  </t-cell-group>
+  <block wx:for="{{sortedCities}}" wx:key="index">
+    <t-indexes-anchor index="{{item.index}}" />
+    <t-cell-group>
+      <t-cell wx:for="{{item.children}}" wx:key="city" wx:for-item="city" title="{{city}}" aria-role="button" bindtap="changeCity" data-city="{{city}}" />
+    </t-cell-group>
+  </block>
+</t-indexes>
