@@ -1,0 +1,6 @@
+<!--components/custom-top-bar/index.wxml-->
+<view class="topbar-container" style="height: {{navBarHeight}}px; ">
+  <view class="location" style="height: {{navBarHeight - statusBarHeight}}px; margin-top: {{statusBarHeight}}px;" bindtap="chooseLocation">
+    <t-icon name="location" size="20px" style="margin-right: 4px;"></t-icon>{{city}}
+  </view>
+</view>

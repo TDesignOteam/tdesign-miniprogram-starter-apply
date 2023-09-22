@@ -1,0 +1,4 @@
+<!--pages/my/components/custom-top-bar/index.wxml-->
+<view class="topbar-container" style="height: {{navBarHeight}}px; background-image: url(../../../../src/imgs/top-bar/topbar-bc.png);">
+  <view class="title" style="padding-top: {{ statusBarHeight }}px; line-height: {{ navBarHeight - statusBarHeight}}px;">我的</view>
+</view>

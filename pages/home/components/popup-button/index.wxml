@@ -1,0 +1,4 @@
+<!--pages/home/components/popupButton/index.wxml-->
+<button class="btn {{ chosen ? 'chosen' : 'normal'}}" bindtap="handleClick">
+{{ text }}
+</button>
