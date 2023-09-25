@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "custom-top-bar": "./components/custom-top-bar/index",
+    "t-swiper": "tdesign-miniprogram/swiper/swiper",
+    "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-popup": "tdesign-miniprogram/popup/popup",
+    "t-avatar": "tdesign-miniprogram/avatar/avatar",
+    "t-avatar-group": "tdesign-miniprogram/avatar-group/avatar-group",
+    "stars-mark": "/components/stars-mark/index",
+    "t-cell": "tdesign-miniprogram/cell/cell"
+  },
+  "navigationStyle": "custom"
+}

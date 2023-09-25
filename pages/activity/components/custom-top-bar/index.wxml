@@ -1,0 +1,7 @@
+<!--pages/activity/components/custom-top-bar/index.wxml-->
+<view style="height: {{navBarHeight}}px; ">
+  <view class="topbar" style="height: {{navBarHeight - statusBarHeight}}px; padding-top: {{statusBarHeight}}px;">
+    <t-icon name="chevron-left" size="24px" bind:click="onIconTap" bindtap="goBack"/>
+    <view class="title">详情</view>
+  </view>
+</view>

@@ -185,6 +185,14 @@ Page({
     })
   },
 
+  // 跳转到活动详情页
+  gotoActivity(e){
+    wx.navigateTo({
+      url: '/pages/activity/index',
+    });
+    console.log(e.currentTarget.dataset.atvid);
+  },
+
   onLoad() {
     this.loadData();
   }

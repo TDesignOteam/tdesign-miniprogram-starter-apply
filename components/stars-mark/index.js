@@ -7,6 +7,10 @@ Component({
     score: {
       "type": Number,
       "value": ""
+    },
+    size: {
+      "type": Number,
+      "value": ''
     }
   },
 
@@ -14,6 +18,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    size: 16
   },
 
   /**
@@ -21,5 +26,18 @@ Component({
    */
   methods: {
 
+  },
+  lifetimes: {
+    attached(){
+      if(this.properties.size){
+        this.setData({
+          size: this.properties.size
+        })
+      } else {
+        this.setData({
+          size: 16
+        })
+      }
+    }
   }
 })

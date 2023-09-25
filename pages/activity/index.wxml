@@ -1,0 +1,75 @@
+<!--pages/activity/index.wxml-->
+<custom-top-bar></custom-top-bar>
+<scroll-view scroll-y="true" style="padding-top: {{navBarHeight}}px; padding-bottom: calc(env(safe-area-inset-bottom) + 95px);">
+  <image class="poster" src="../../src/imgs/activity/bc.png" mode="aspectFit" />
+  <view class="guest">
+    <view class="title">活动嘉宾</view>
+    <view class="card-theme">
+      <t-swiper height="159.9px" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{ { type: 'dots' } }}" list="{{guestList}}" image-props="{{ { shape: 'round' } }}" previousMargin="0px" nextMargin="34px" t-class-nav="card-theme-nav" />
+    </view>
+  </view>
+  <view class="venue">
+    <view class="title">活动会场</view>
+    <view class="card-theme">
+      <t-swiper height="159.9px" current="{{current}}" autoplay="{{autoplay}}" duration="{{duration}}" interval="{{interval}}" navigation="{{ { type: 'dots' } }}" list="{{venueList}}" image-props="{{ { shape: 'round' } }}" previousMargin="0px" nextMargin="34px" t-class-nav="card-theme-nav" />
+    </view>
+  </view>
+</scroll-view>
+<!-- 底部操作面板 -->
+<view class="panel">
+  <view class="pullup" bind:tap="handlePopup" wx:if="{{!popupVisible}}">
+    <t-icon name="chevron-up" size="24px" />
+  </view>
+  <view class="like" bindtap="handleLike">
+    <t-icon name="heart" size="48rpx" wx:if="{{!like}}" />
+    <t-icon name="heart-filled" size="48rpx" wx:if="{{like}}" style="color: #ea3849" />
+    收藏
+  </view>
+  <view class="share">
+    <t-icon name="share" size="48rpx" />分享
+  </view>
+  <t-button theme="primary">立即购买{{priceRange}}</t-button>
+</view>
+<!-- 弹出详情面板 -->
+<t-popup visible="{{popupVisible}}" placement="bottom">
+  <view class="pullup" bind:tap="handlePopup">
+    <t-icon name="chevron-down" size="20px" wx:if="{{popupVisible}}" />
+  </view>
+  <scroll-view class="info" scroll-y="true">
+    <view class="atvTitle">{{ atvTitle }}</view>
+    <view class="interest">
+      <t-avatar-group max="5" collapseAvatar="99+" cascading="right-up" size="32px">
+        <t-avatar wx:for="{{profiles}}" wx:for-item="pro" wx:key="index" image="{{pro}}" size="32px" />
+      </t-avatar-group>
+      <text>236人感兴趣</text>
+    </view>
+    <view class="atvInfo">
+      <view>
+        <t-icon name="time" size="20px" style="color: #0052D9" />
+        <text>时间：{{ date }}</text>
+      </view>
+      <view>
+        <t-icon name="location" size="20px" style="color: #0052D9" />
+        <text>地点：{{location}}</text>
+        <t-button theme="light">导航</t-button>
+      </view>
+    </view>
+    <view class="comments">
+      <view class="commentsTitle">
+        活动评价(26)
+        <stars-mark score="{{score}}" size="20"></stars-mark>
+      </view>
+      <swiper class="commentGroup" indicator-dots="{{false}}" autoplay="{{false}}">
+        <block wx:for="{{comments}}" wx:key="index">
+          <swiper-item>
+            <t-cell title="{{item.user}}" description="{{item.comment}}" align="top" image="{{item.profile}}" hover bordered="{{false}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="introduction">
+      <view class="introTitle">活动介绍</view>
+      <view class="introText">{{introduction}}</view>
+    </view>
+  </scroll-view>
+</t-popup>

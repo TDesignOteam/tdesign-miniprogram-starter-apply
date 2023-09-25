@@ -27,7 +27,7 @@
         筛选
       </t-col>
     </t-row>
-    <info-card wx:for="{{atvsList}}" wx:key="index" data="{{item}}"></info-card>
+    <info-card wx:for="{{atvsList}}" wx:key="index" data="{{item}}" bindtap="gotoActivity" data-atvid="{{item}}"></info-card>
   </view>
 </scroll-view>
 

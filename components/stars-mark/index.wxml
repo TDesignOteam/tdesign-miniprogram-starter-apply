@@ -2,19 +2,19 @@
 <view class="score">
   <view class="stars-container">
     <view class="stars-background">
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
     </view>
-    <view class="stars" style="width: {{score*16 + (score-0.5)*5.15}}px">
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
-      <t-icon name="star-filled" size="16px" />
+    <view class="stars" style="width: {{score*size + (score-0.5)*5.15}}px">
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
+      <t-icon name="star-filled" size="{{size}}px" />
     </view>
   </view>
-  <text>{{score}}分</text>
+  <text style="font-size: {{size - 4}}px; ">{{score}}分</text>
 </view>

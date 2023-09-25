@@ -1,0 +1,304 @@
+/* pages/activity/index.wxss */
+page {
+  background: #040000;
+}
+
+custom-top-bar {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  background-color: #040000;
+}
+
+.poster {
+  height: 160px;
+  width: 100%;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "PingFang SC";
+  text-align: left;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.guest {
+  margin-top: 21px;
+  margin-left: 16px;
+}
+
+.venue {
+  margin-top: 24px;
+  margin-left: 16px;
+}
+
+
+.card-theme {
+  --td-swiper-radius: 0;
+  --td-swiper-item-padding: 0 12px 0 0;
+  --td-swiper-nav-dot-color: #e7e7e7;
+  --td-swiper-nav-dot-active-color: #0052d9;
+
+  padding-bottom: 18px;
+}
+
+.card-theme .card-theme-nav {
+  bottom: -18px;
+}
+
+.scale-candidate {
+  height: 126px !important;
+}
+
+.panel {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: calc(env(safe-area-inset-bottom) + 80px);
+  background-color: #fff;
+  position: fixed;
+  bottom: 0px;
+  z-index: 99999;
+  border-radius: 12px 12px 0 0;
+
+  .share,
+  .like {
+    width: 50px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #040000;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: "PingFang SC";
+    text-align: center;
+    line-height: 20px;
+  }
+
+  .like {
+    margin-left: 16px;
+  }
+
+  button {
+    width: 227px;
+    height: 48px;
+    margin-left: 16px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "PingFang SC";
+    text-align: center;
+    line-height: 24px;
+  }
+
+  .pullup {
+    height: 70px;
+    width: 70px;
+    background-color: #ffffff;
+    color: #040000;
+    position: fixed;
+    bottom: calc(env(safe-area-inset-bottom) + 35px);
+    left: 50%;
+    margin-left: -38px;
+    border-radius: 99% 0;
+    transform: rotate(45deg);
+
+    .t-icon {
+      transform: rotate(-45deg);
+      position: relative;
+      z-index: 100;
+      right: 2.3px;
+      top: 18.3px;
+    }
+  }
+}
+
+.t-popup {
+  height: 67vh;
+  width: 100vw;
+  background-color: #fff;
+  border-radius: 12px 12px 0 0;
+
+  .pullup {
+    height: 2.5vh;
+
+    .t-icon {
+      position: relative;
+      bottom: 2.8vh;
+      color: #ffffff;
+      box-shadow: 0 3px 14px 2px #0000000d, 0 8px 10px 1px #0000000f, 0 5px 5px -3px #0000001a;
+    }
+
+  }
+
+  .info {
+    margin: 0 4.3vw;
+    margin-top: 0.5vh;
+    height: 53.4vh;
+    width: 91.4vw;
+
+    .atvTitle {
+      color: #040000;
+      font-size: 2.5vh;
+      font-weight: 600;
+      font-family: "PingFang SC";
+      text-align: left;
+      line-height: 3.4vh;
+      margin-bottom: 1.5vh;
+    }
+
+    .interest {
+      border-bottom: 0.5px solid #e7e7e7;
+      padding-bottom: 1vh;
+
+      text {
+        display: inline-flex;
+        height: 32px;
+        align-items: center;
+        position: relative;
+        bottom: 1vh;
+        margin-left: 2.1vw;
+        color: #00000099;
+        font-size: 1.5vh;
+        font-weight: 400;
+        font-family: "PingFang SC";
+        text-align: left;
+      }
+    }
+
+    .atvInfo {
+      height: 7.9vh;
+      margin-top: 2vh;
+      color: #040000;
+      font-size: 1.7vh;
+      font-weight: 400;
+      font-family: "PingFang SC";
+      text-align: left;
+      line-height: 2.7vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 0.5px solid #f3f3f3;
+      padding-bottom: 2vh;
+
+      view {
+        display: flex;
+        position: relative;
+
+        text {
+          margin-left: 4px;
+        }
+
+        button {
+          width: 11.7vw;
+          height: 3.5vh;
+          color: #0052d9;
+          font-size: 1.7vh;
+          font-weight: 600;
+          font-family: "PingFang SC";
+          text-align: center;
+          line-height: 3.4vh;
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+
+    .comments {
+      height: 16vh;
+      position: relative;
+      margin-top: 2vh;
+      padding-bottom: 1.5vh;
+      border-bottom: 0.5px solid #f3f3f3;
+
+      .commentsTitle {
+        color: #040000;
+        font-size: 2vh;
+        font-weight: 600;
+        font-family: "PingFang SC";
+        text-align: left;
+        line-height: 3vh;
+        margin-bottom: 1.5vh;
+      }
+
+      stars-mark {
+        position: absolute;
+        right: 0px;
+      }
+
+      .commentGroup {
+        .t-cell {
+          width: 90vw;
+          height: 11.1vh;
+          background-color: #f3f3f3;
+          border-radius: 12px;
+          padding: 1.5vh 3.2vw;
+
+          .t-cell__left {
+            margin-top: 1vh;
+
+            image {
+              width: 4.9vh;
+              height: 4.9vh;
+              border-radius: 4.9vh;
+            }
+          }
+
+          .t-cell__title {
+            .t-cell__title-text {
+              color: #040000;
+              font-size: 1.7vh;
+              font-weight: 400;
+              font-family: "PingFang SC";
+              text-align: left;
+              line-height: 2.7vh;
+            }
+
+            .t-cell__description-text {
+              height: 4.9vh;
+              width: 69.1vw;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              overflow: hidden;
+              color: #00000099;
+              font-size: 1.5vh;
+              font-weight: 400;
+              font-family: "PingFang SC";
+              text-align: left;
+              line-height: 2.5vh;
+            }
+          }
+        }
+      }
+    }
+
+    .introduction {
+      margin-top: 1.5vh;
+
+      .introTitle {
+        color: #040000;
+        font-size: 2vh;
+        font-weight: 600;
+        font-family: "PingFang SC";
+        text-align: left;
+        line-height: 3vh;
+        margin-bottom: 1.5vh;
+      }
+
+      .introText {
+        color: #040000;
+        font-size: 1.7vh;
+        font-weight: 400;
+        font-family: "PingFang SC";
+        text-align: left;
+        line-height: 2.7vh;
+      }
+    }
+  }
+}

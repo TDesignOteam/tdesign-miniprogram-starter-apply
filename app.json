@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/index",
     "pages/home/chooseLocation/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/activity/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
